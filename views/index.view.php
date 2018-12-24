@@ -6,10 +6,7 @@
     <meta charset="utf-8">
 
     <title></title>
-
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
+    <?php require 'partials/layout.php'; ?>
   </head>
 
   <body>
@@ -18,8 +15,9 @@
 
                 <!-- //another for writing and echoing php -->
            <?= 'Mukera' ?>
-        
+
         </h1>
+        <?php require 'partials/nav.php'; ?>
         <ul>
           <h3>task to finish</h3>
             <?php foreach($tasks as $task):?>

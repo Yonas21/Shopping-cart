@@ -1,25 +1,11 @@
 <?php
-    require 'function.php';
-    require 'task.php';
 
-    //connect to database 
-    try {
-    	$pdo = new PDO('mysql:host=127.0.0.1;dbname=mukera','root','');
-    	echo "connected successfully";
-    } catch (PDOException $e) {
-    	die($e->getMessage());
-    }
+	require 'core/bootstrap.php';
 
-    // prepare the sql query and then
-    $statement = $pdo->prepare('select * from todos');
+	$router = Router::load('routes.php');
 
-    //fire or execute
-    $statement->execute();
 
-    //then fetch it
-    $tasks = $statement->fetchAll(PDO::FETCH_CLASS,'Task');
-    format($tasks[0]->complete());
+	require $router->direct(Request::uri());
 
-    require 'index.view.php';
 
 ?>
